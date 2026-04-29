@@ -20,7 +20,7 @@ Client-side vacation and AFK mode system for Pulsar Framework. Allows players to
 
 ## License
 
-Copyright © 2024 Pulsar Framework. All rights reserved.
+Copyright © 2026 Pulsar Framework. All rights reserved.
 
 <div align="center">
 
