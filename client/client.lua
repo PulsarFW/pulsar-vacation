@@ -396,7 +396,7 @@ AddEventHandler("Polyzone:Enter", function(id, point, insideZone, data)
 		for k, v in ipairs(requestedIpl) do
 			RequestIpl(v)
 		end
-
+		RemoveIpl("prologue06_int")
 		exports['pulsar-core']:LoggerTrace("Island", "Entering Island Zone")
 	end
 end)
@@ -425,5 +425,6 @@ AddEventHandler("Polyzone:Exit", function(id, point, insideZone, data)
 		for k, v in ipairs(requestedIpl) do
 			RemoveIpl(v)
 		end
+		RequestIpl("prologue06_int")
 	end
 end)
