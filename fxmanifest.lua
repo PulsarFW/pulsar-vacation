@@ -1,14 +1,17 @@
 fx_version 'cerulean'
 game 'gta5'
 
-name 'pulsar-vacation'
-version '1.0.1'
-repository 'https://www.github.com/PulsarFW/pulsar-vacation'
-author 'Pulsar Framework'
+name 'Pulsar Vacation'
+description 'Cayo Perico island enablement'
+author 'Artmines - maintained for Pulsar Framework'
+url 'https://pulsarframe.work'
+version 'v1.0.0'
 
-server_scripts {
-  'server/main.lua',
-}
+version_check 'yes'
+github 'https://github.com/PulsarFW/pulsar_vacation'
+
+shared_script("@pulsar_core/core/sh_pulsar.lua")
+
 client_scripts {
-  'client/main.lua',
+    'client/*.lua',
 }

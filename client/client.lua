@@ -1,11 +1,9 @@
 local inCayoPerico = false
 
-AddEventHandler('onClientResourceStart', function(resource)
-	if resource == GetCurrentResourceName() then
-		Wait(1000)
-		exports['pulsar-polyzone']:CreateCircle("cayo_perico", vector3(4965.17, -5693.89, 200.86), 2500.0, {})
+CreateThread(function()
+		plsr.Polyzone.Create:Circle("cayo_perico", vector3(4965.17, -5693.89, 200.86), 2500.0, {})
 
-		exports['pulsar-polyzone']:CreatePoly("cayo_perico_weather", {
+		plsr.Polyzone.Create:Poly("cayo_perico_weather", {
 			vector2(5553.9536132812, -3238.1625976562),
 			vector2(5855.6381835938, -2362.1159667969),
 			vector2(4317.2016601562, -1245.5816650391),
@@ -41,7 +39,6 @@ AddEventHandler('onClientResourceStart', function(resource)
 			vector2(5143.3994140625, -3166.5712890625),
 			vector2(5271.7734375, -3169.4792480469),
 		}, {}, {})
-	end
 end)
 
 local requestedIpl = {
@@ -396,8 +393,8 @@ AddEventHandler("Polyzone:Enter", function(id, point, insideZone, data)
 		for k, v in ipairs(requestedIpl) do
 			RequestIpl(v)
 		end
-		RemoveIpl("prologue06_int")
-		exports['pulsar-core']:LoggerTrace("Island", "Entering Island Zone")
+
+		plsr.Logger:Trace("Island", "Entering Island Zone")
 	end
 end)
 
@@ -419,12 +416,11 @@ AddEventHandler("Polyzone:Exit", function(id, point, insideZone, data)
 		SetAmbientZoneListStatePersistent("AZL_DLC_Hei4_Island_Zones", false, false)
 		SetAmbientZoneListStatePersistent("AZL_DLC_Hei4_Island_Disabled_Zones", false, false)
 		inCayoPerico = false
-		exports['pulsar-core']:LoggerTrace("Island", "Leaving Island Zone")
+		plsr.Logger:Trace("Island", "Leaving Island Zone")
 
 		Wait(50)
 		for k, v in ipairs(requestedIpl) do
 			RemoveIpl(v)
 		end
-		RequestIpl("prologue06_int")
 	end
 end)
